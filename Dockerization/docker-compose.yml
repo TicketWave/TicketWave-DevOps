@@ -5,8 +5,8 @@ services:
     ports:
       - "27017:27017"
     environment:
-      - SECRET_KEY = 'django-insecure-n=a2yox(rubsowm)xnqv^9!q-jut2krq*s9p)j%2hdg(4^7kcf'
-      - MONGOHOST = 'mongodb+srv://jemmy:SFmskb4tFnNfoueg@cluster0.dol1pt8.mongodb.net/?retryWrites=true&w=majority'
+      - SECRET_KEY=django-insecure-n=a2yox(rubsowm)xnqv^9!q-jut2krq*s9p)j%2hdg(4^7kcf
+      - MONGOHOST=mongodb+srv://jemmy:SFmskb4tFnNfoueg@cluster0.dol1pt8.mongodb.net/?retryWrites=true&w=majority
   
   nginx:
     depends_on:
@@ -26,10 +26,11 @@ services:
       dockerfile: Dockerfile
       context: ./TicketWave-Backend 
     volumes:
+      - ./TicketWave-Backend/requirement.txt:/app/backend/requirement.txt
       - ./TicketWave-Backend/Ticketwave:/app/backend
     environment:
-      - SECRET_KEY = 'django-insecure-n=a2yox(rubsowm)xnqv^9!q-jut2krq*s9p)j%2hdg(4^7kcf'
-      - MONGOHOST = 'mongodb+srv://jemmy:SFmskb4tFnNfoueg@cluster0.dol1pt8.mongodb.net/?retryWrites=true&w=majority'
+      - SECRET_KEY=django-insecure-n=a2yox(rubsowm)xnqv^9!q-jut2krq*s9p)j%2hdg(4^7kcf
+      - MONGOHOST=mongodb+srv://jemmy:SFmskb4tFnNfoueg@cluster0.dol1pt8.mongodb.net/?retryWrites=true&w=majority
     ports:
       - "8000:8000"
 
