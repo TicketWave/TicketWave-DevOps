@@ -5,26 +5,25 @@ services:
       - backend
       - frontend
     restart: always
-    build: 
+    build:
       dockerfile: Dockerfile
       context: ./nginx
     ports:
       - "80:80"
-
+      - "443:443"
   backend:
-    depends_on:
-      - mongodb
     build:
       dockerfile: Dockerfile
-      context: ./TicketWave-Backend 
+      context: ./TicketWave-Backend
     volumes:
       - ./TicketWave-Backend/requirement.txt:/app/backend/requirement.txt
       - ./TicketWave-Backend/Ticketwave:/app/backend
     ports:
       - "8000:8000"
+      - "587:587"
 
   frontend:
-    build: 
+    build:
       dockerfile: Dockerfile
       context: ./TicketWave-Frontend
     volumes:
